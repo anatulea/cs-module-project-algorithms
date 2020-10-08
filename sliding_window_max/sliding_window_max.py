@@ -23,7 +23,7 @@ def sliding_window_max(nums, k):
     for i in range(len(nums) - k + 1):
         if redo:
             window = nums[i:i+k] # it starts at i and moves to the right k positions
-            print(window)
+            # print(window)
             max_val = max(window) # takes the maxim value from the window 
             output[i] = max_val
             if window[0] != max_val:
@@ -40,6 +40,17 @@ def sliding_window_max(nums, k):
             output[i] = previous_max
 
     return output
+# def sliding_window_max(nums, k):	
+#     max_list = []
+#     i = 0
+#     while i + k <= len(nums) + i:
+#         window = nums[i:k]
+#         max_list.append(max(window))
+#         i += 1
+#         k += 1
+#     return max_list
+
+
 
 
 if __name__ == '__main__':
