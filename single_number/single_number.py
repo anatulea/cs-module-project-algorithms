@@ -9,10 +9,40 @@ Returns: an integer
 #         solution = solution ^ arr[i]
 #     return solution
 
-def single_number(arr):
-    for element in arr:
-        if arr.count(element) == 1:
-            return element
+
+# O(n^2)
+# def single_number(arr): 
+#     for element in arr: # O(n)
+#         if arr.count(element) == 1: # O(n)
+#             return element
+
+
+# O(n)
+def single_number(arr): 
+    # sets are useful for when we need the uniqeness property 
+    s = set()
+    for num in arr: # O(n)
+        if num in s: # O(1)
+            s.remove(num) # O(1)
+        else:
+            s.add(num) # O(1)
+    # at this point the only element in the set is our odd element
+    # to get the element we need to transform the set to a list and grab the element
+    return list(s)[0] # O(1)
+
+# O (n^2)
+# def single_number(arr): 
+#     # sets are useful for when we need the uniqeness property 
+#     s = []
+#     for num in arr: # O(n)
+#         if num in s: # O(n)
+#             s.remove(num) # O(1)
+#         else:
+#             s.append(num) # O(1)
+#     # at this point the only element in the set is our odd element
+#     # to get the element we need to transform the set to a list and grab the element
+#     return s.pop() # O(1)
+
             
 if __name__ == '__main__':
     # Use the main function to test your implementation
